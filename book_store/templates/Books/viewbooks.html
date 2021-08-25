@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% block 'main_content' %}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ViewBooks</title>
+  </head>
+  <body>
+    <div class='container'>
+    <h1>Books</h1>
+    <p>Here are the books in your cart!</p>
+    <form method="POST">
+    {% csrf_token %}
+    <style>
+          th,td{
+      border: 1px black solid;
+    }
+    </style>
+    <table  class="table">
+      <thead>
+        <tr>
+          <th>Book Id</th>
+          <th>Book Author</th>
+          <th>AuthorId</th>
+          <th>Book Title</th>
+          <th>Price</th>
+          <th>Edition</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for d in data %}
+          <tr>
+            <td>{{d.id}}</td>
+            <td>{{d.author}}</td>
+            <td>{{d.author_id}}</td>
+            <td>{{d.title}}</td>
+            <td>{{d.Price}}</td>
+            <td>{{d.Edition}}</td>
+          </tr>
+        {% endfor%}
+    </tbody>
+  </body>
+</html>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% block 'main_content' %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Signup</title>
+  </head>
+  <body>
+    <div class='container'>
+    <div class="jumbotron">
+    <h1>{{form}}</h1>
+    <h1>LogIn</h1>
+    <p>Please enter your email and password:</p>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="email"><b>Email:</label><br>
+      <input type="text" id="email" name = "email" placeholder="Email"><br>
+      <p></p>
+      <label for="password"><b>Password:</label><br>
+      <input type="password" id="password" name = "password" placeholder="Password"><br>
+      <p></p>
+      <button name="logg" type="submit">Login</button><br>
+      <p></p>
+      <a href="{% url 'registration' %}">Not registered yet! Register Now</a>
+      </form>
+
+
+    </div>
+  </body>
+</html>
+{% endblock %}
